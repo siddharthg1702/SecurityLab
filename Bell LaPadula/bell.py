@@ -35,8 +35,8 @@ class sFileSystem:
         elif mode == 'w':
             if user.level >= reqFile.level:
                 return reqFile
-        else:
-            print('Cannot write down')
+            else:
+                print('Cannot write down')
     
     def showFiles(self):
         print('File\t\tLevel')
@@ -91,7 +91,7 @@ class sComputer:
                     print('Enter filename, level(topsecret, secret, confidential, unclassified):')
                     filename = input() 
                     level = input()
-                    self.fileSystem.createFile(name, stringToLevel[level], user)
+                    self.fileSystem.createFile(filename, stringToLevel[level])
                 elif choice == 2:
                     filename = input('Enter filename:\n')
                     opFile = self.fileSystem.openFile(filename, user, 'r')
