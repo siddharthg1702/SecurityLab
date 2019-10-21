@@ -4,16 +4,16 @@
 </head>
 <body>
     <form action="sql_injection.php" method="post">
-        Enter the username:&nbsp;<input type=text id="username" name="username"><br>
-        Enter the password:&nbsp;<input type=password id="password" name="password"><br>
+        Enter RegNo:&nbsp;<input type=text id="username" name="username"><br>
+        Enter password:&nbsp;<input type=password id="password" name="password"><br>
         <input type="submit" value="Submit">
     </form>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $servername = "localhost";
         $username = "root";
-        $password = "srini1998";
-        $dbname = "Base1";
+        $password = "Sid_12345";
+        $dbname = "test";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -23,7 +23,7 @@
 
         $user = $_POST["username"];
         $pass = $_POST["password"];
-        $sql = "SELECT * FROM Login where userName = '$user' and passWord ='$pass' ";
+        $sql = "SELECT * FROM student where RegNo = '$user' and Password ='$pass' ";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             echo "Login Successful";
